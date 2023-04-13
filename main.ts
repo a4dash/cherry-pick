@@ -1,3 +1,7 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    sprites.destroy(otherSprite)
+})
 let cheery: Sprite = null
 game.splash("Cherry Picker")
 tiles.setCurrentTilemap(tilemap`level2`)
@@ -41,4 +45,6 @@ game.onUpdateInterval(500, function () {
         . c c c c c c c . . . . . . . . 
         `, SpriteKind.Food)
     cheery.setPosition(randint(0, 160), randint(0, 120))
+    info.startCountdown(60)
+    info.changeScoreBy(0)
 })
